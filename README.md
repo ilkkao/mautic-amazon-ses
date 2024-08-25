@@ -11,7 +11,7 @@ This plugin enable Mautic 5 to run AWS SES as a email transport and provide a ca
 1. Get the plugin using
 
 ```
-composer require pabloveintimilla/mautic-amazon-ses
+composer require ilkkao/mautic-amazon-ses
 ```
 
 2. Clear cache
@@ -28,9 +28,9 @@ php bin/console mautic:plugins:reload
 
 ## CONFIGURATION MAUTIC
 
-Be sure to use the `ses+api` as Data Source Name (DSN).
+Be sure to use the `ses+https` as Data Source Name (DSN).
 The following is the example for the DSN.
-`ses+api://ACCESS_KEY:SECRET_KEY@default?region=REGION`
+`ses+https://ACCESS_KEY:SECRET_KEY@default?region=REGION`
 
 Follow the steps to setup plugin DSN:
 
@@ -39,7 +39,7 @@ Follow the steps to setup plugin DSN:
 
 | Field    | Value         |
 | -------- | ------------- |
-| Scheme   | `ses+api`     |
+| Scheme   | `ses+https`   |
 | Host     | `default`     |
 | Port     | `465`         |
 | User     | `<aws-user>`  |
@@ -56,11 +56,11 @@ Process bounces you need to configure an AWS SNS to send a callback to Mautic.
 1. Create a SNS topic attached to AWS SES Identity.
 2. Configure a suscription:
    - Protocol: HTTPS
-   - **Enable raw message delivery** 
+   - **Enable raw message delivery**
    - Endpoint: `URL_MAUTIC`/mailer/callback.
-4. Confirm SNS suscription, this plugin automatic activate.
+3. Confirm SNS suscription, this plugin automatic activate.
 
-## AUTHOR
+## ORIGINAL AUTHOR
 
 👤 **Pablo Veintimilla**
 
